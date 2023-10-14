@@ -1,0 +1,8 @@
+<div class="card-wrapper">
+  <app-card-busca
+    *ngFor="let pokemon of pokemons; keyvalue"
+    [id]="pokemon.id"
+    [name]="pokemon.name"
+    [image]="pokemon.sprites.front_default"
+  ></app-card-busca>
+</div>

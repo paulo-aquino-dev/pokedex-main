@@ -1,12 +1,7 @@
 <mat-card class="card-busca">
-  <img mat-card-image
-    src="assets/imagens/pikachu.png" alt="Imagem de Veneza">
-  <mat-card-content>
-    <ul>
-      <li>Pokemon</li>
-    </ul>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-flat-button color="warn">VER DETALHES</button>
-  </mat-card-actions>
+  <mat-card-header>
+    <mat-card-subtitle>#{{this.id}}</mat-card-subtitle>
+    <mat-card-title>{{this.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{this.image}}" alt="{{this.name}}" />
 </mat-card>
