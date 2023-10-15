@@ -7,7 +7,7 @@ import { environment } from '../environments/environments';
 })
 
 export class PokeDataService {
-  pokemons = [];
+  pokemons: any[] = [];
   constructor(private http: HttpClient) {}
 
   baseUrl = environment.baseUrl
@@ -16,14 +16,22 @@ export class PokeDataService {
     return this.http.get(url);
   }
 
-  async getPokemons(id: number){
-    return await this.http.get<any>(`${this.baseUrl}pokemon/${id}`)
+  async getPokemons(id: number): Promise<any>{
+    const response =  await fetch(`${this.baseUrl}pokemon/${id}`)
+    const data = await response.json()
+    return data
   }
 
-  async carregarPokemons() {
-    const requisicao = await this.http
-      .get<any>('https://pokeapi.co/api/v2/pokemon?limit=151')
-      .toPromise();
-    this.pokemons = requisicao.results;
+  carregarPokemons() {
+     return this.http.get<any>(`https://pokeapi.co/api/v2/type/ground`)
+      //.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=151`)
   }
+
+  // async carregarPokemons() {
+  //   const requisicao = await this.http
+  //     .get<any>(`https://pokeapi.co/api/v2/type/ground`)
+  //     //.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=151`)
+  //     .toPromise();
+  //   this.pokemons = requisicao.results;
+  // }
 }
