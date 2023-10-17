@@ -8,30 +8,15 @@ import { environment } from '../environments/environments';
 
 export class PokeDataService {
   pokemons: any[] = [];
-  constructor(private http: HttpClient) {}
-
   baseUrl = environment.baseUrl
 
-  getData(url: string) {
-    return this.http.get(url);
+  constructor(private http: HttpClient) {}
+
+  async getPokemonById(id: number): Promise<any>{
+    return (await fetch(`${this.baseUrl}pokemon/${id}`)).json()
   }
 
-  async getPokemons(id: number): Promise<any>{
-    const response =  await fetch(`${this.baseUrl}pokemon/${id}`)
-    const data = await response.json()
-    return data
+  getPokemons() {
+    return this.http.get(`${this.baseUrl}pokemon?limit=151`);
   }
-
-  carregarPokemons() {
-     return this.http.get<any>(`https://pokeapi.co/api/v2/type/ground`)
-      //.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=151`)
-  }
-
-  // async carregarPokemons() {
-  //   const requisicao = await this.http
-  //     .get<any>(`https://pokeapi.co/api/v2/type/ground`)
-  //     //.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=151`)
-  //     .toPromise();
-  //   this.pokemons = requisicao.results;
-  // }
 }

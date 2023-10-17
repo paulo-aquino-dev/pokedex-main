@@ -15,7 +15,7 @@ export class CardListComponent {
     try {
       const totalPokemon = 150
       const ids = Array.from({ length: totalPokemon }, (_, i) => i + 1)
-      const retornoApi = await Promise.all(ids.map((id) => this.pokeDataService.getPokemons(id)))
+      const retornoApi = await Promise.all(ids.map((id) => this.pokeDataService.getPokemonById(id)))
       this.pokemons.push(...retornoApi)
     } catch (error) {
       console.error('Erro ao chamar a API:', error)
