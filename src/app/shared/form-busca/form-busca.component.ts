@@ -1,5 +1,5 @@
 import { PokemonDTO } from "../DTOs/PokemonDTO";
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 import { PokeDataService } from 'src/app/services/poke-data.service';
@@ -14,7 +14,8 @@ export class FormBuscaComponent {
   pokemonForm = new FormControl('');
   pokemons: PokemonDTO[] = [];
   filteredPokemons: Observable<any[]>;
-  value = ''
+  pokemonNome = ''
+  @Output() filtro = new EventEmitter<string>()
   constructor() {
     this.filteredPokemons = this.pokemonForm.valueChanges.pipe(
       startWith(''),
@@ -50,11 +51,16 @@ export class FormBuscaComponent {
     }
   }
 
-  someMethod(){
-    console.log("batata")
-  }
-
   ngOnInit() {
     this.getPokemons();
+  }
+
+  filtrarPorNome(){
+    this.filtro.emit(this.pokemonNome)
+  }
+
+  limparFiltro(){
+    this.pokemonNome = ''
+    this.filtrarPorNome()
   }
 }

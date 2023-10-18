@@ -5,15 +5,15 @@
            aria-label="State"
            [matAutocomplete]="auto"
            [formControl]="pokemonForm"
-           [(ngModel)]="value">
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="someMethod()">
+           [(ngModel)]="pokemonNome">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="filtrarPorNome()">
       <mat-option *ngFor="let pokemon of filteredPokemons | async" [value]="pokemon.name" >
         <span>#{{pokemon.id}}</span>
         <img alt="" class="example-option-img" [src]="pokemon.image" height="70">
         <span>{{pokemon.name}}</span>
       </mat-option>
     </mat-autocomplete>
-    <button type="button" *ngIf="value" button mat-icon-button matSuffix (click)="value = ''">
+    <button type="button" *ngIf="pokemonNome" button mat-icon-button matSuffix (click)="limparFiltro()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>

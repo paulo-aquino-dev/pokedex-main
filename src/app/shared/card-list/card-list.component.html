@@ -1,4 +1,12 @@
-<div class="card-wrapper">
+<div class="card-wrapper" *ngIf="this.filtro">
+  <app-card-busca
+    *ngFor="let pokemon of pokemonFiltrado;"
+    [id]="pokemon.id"
+    [name]="pokemon.name"
+  ></app-card-busca>
+</div>
+
+<div class="card-wrapper" *ngIf="!this.filtro">
   <app-card-busca
     *ngFor="let pokemon of pokemons;"
     [id]="pokemon.id"

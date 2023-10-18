@@ -16,6 +16,10 @@ export class PokeDataService {
     return (await fetch(`${this.baseUrl}pokemon/${id}`)).json()
   }
 
+  async getPokemonByName(name: string): Promise<any>{
+    return (await fetch(`${this.baseUrl}pokemon/${name}`)).json()
+  }
+
   getPokemons() {
     return this.http.get(`${this.baseUrl}pokemon?limit=151`);
   }
