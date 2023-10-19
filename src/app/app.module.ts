@@ -14,7 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { ContainerComponent } from './shared/container/container.component';
 import { HomeComponent } from './pages/home/home.component';
-import { CardBuscaComponent } from './shared/card-busca/card-busca.component';
+import { CardPokemonComponent } from './shared/card-pokemon/card-pokemon.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { CardListComponent } from './shared/card-list/card-list.component';
@@ -32,7 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     BannerComponent,
     ContainerComponent,
     HomeComponent,
-    CardBuscaComponent,
+    CardPokemonComponent,
     CardListComponent,
     FormBuscaComponent
   ],
