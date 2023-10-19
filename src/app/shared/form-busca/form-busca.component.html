@@ -9,8 +9,8 @@
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="filtrarPorNome()">
       <mat-option *ngFor="let pokemon of filteredPokemons | async" [value]="pokemon.name" >
         <span>#{{pokemon.id}}</span>
-        <img alt="" class="example-option-img" [src]="pokemon.image" height="70">
-        <span>{{pokemon.name}}</span>
+        <img alt="pokemon" class="example-option-img" [src]="pokemon.image" height="40">
+        <span ngClass="teste">{{pokemon.name}}</span>
       </mat-option>
     </mat-autocomplete>
     <button type="button" *ngIf="pokemonNome" button mat-icon-button matSuffix (click)="limparFiltro()">

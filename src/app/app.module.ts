@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, AsyncPipe } from '@angular/common';
 import { FormBuscaComponent } from './shared/form-busca/form-busca.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ModalPokemonDetailsComponent } from './shared/modal-pokemon-details/modal-pokemon-details.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     CardPokemonComponent,
     CardPokemonListComponent,
-    FormBuscaComponent
+    FormBuscaComponent,
+    ModalPokemonDetailsComponent
   ],
   imports: [
     HttpClientModule,

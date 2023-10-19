@@ -2,7 +2,11 @@
   <mat-card-header>
     <mat-card-subtitle>#{{this.id}}</mat-card-subtitle>
     <mat-card-title>{{this.name}}</mat-card-title>
-    <!-- <mat-card-subtitle>#{{this.type}}</mat-card-subtitle> -->
   </mat-card-header>
-  <img mat-card-image src="{{this.image}}" alt="{{this.name}}" />
+  <img [src]="pegarImagemPokemon()"/>
+  <mat-card-footer>
+    <div *ngFor="let type of types;" ngClass="{{this.pokemonTypeStyle}}{{type}}">
+      {{type}}
+    </div>
+  </mat-card-footer>
 </mat-card>

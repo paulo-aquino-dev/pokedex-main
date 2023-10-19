@@ -42,7 +42,7 @@ export class FormBuscaComponent {
       const pokemon = new PokemonDTO(
         poke.id,
         poke.name,
-        poke.sprites.front_default,
+        this.pegarImagemPokemon(poke.id),
         pokemonType)
       this.pokemons.push(pokemon);
     };
@@ -62,5 +62,21 @@ export class FormBuscaComponent {
   limparFiltro(){
     this.pokemonNome = ''
     this.filtrarPorNome()
+  }
+
+  pegarImagemPokemon(id:number) {
+    const numeroFormatado = this.leadingZero(id);
+
+    return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${numeroFormatado}.png`;
+  }
+
+  leadingZero(str: string | number, size = 3): string {
+    let s = String(str);
+
+    while (s.length < (size || 2)) {
+      s = '0' + s;
+    }
+
+    return s;
   }
 }

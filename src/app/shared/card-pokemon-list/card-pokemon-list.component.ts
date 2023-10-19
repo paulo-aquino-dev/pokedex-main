@@ -8,6 +8,7 @@ import { PokeDataService } from 'src/app/services/poke-data.service';
   styleUrls: ['./card-pokemon-list.component.scss'],
   providers: [PokeDataService],
 })
+
 export class CardPokemonListComponent {
   @Input() filtro: any
   pokemons: PokemonDTO[] = []
@@ -25,7 +26,7 @@ export class CardPokemonListComponent {
         retornoApi.forEach((poke) => {
           const pokemonType: string = poke.types
             .map((poke: any) => poke.type.name)
-            .join(', ')
+            .join(',')
           const pokemonDto = new PokemonDTO(
             poke.id,
             poke.name,
@@ -46,10 +47,9 @@ export class CardPokemonListComponent {
       const retornoApi = await this.pokeDataService.getPokemonByName(
         this.filtro
       )
-
       const pokemonType: string = retornoApi.types
         .map((poke: any) => poke.type.name)
-        .join(', ');
+        .join(',');
       const pokemonDto = new PokemonDTO(
         retornoApi.id,
         retornoApi.name,
