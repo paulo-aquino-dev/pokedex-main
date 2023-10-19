@@ -11,10 +11,13 @@ import { Component, Input } from '@angular/core';
 export class CardPokemonComponent {
   @Input() id: number = 0
   @Input() name: string = ""
+  @Input() type: string = ""
+  types: string[] =[]
   image: string = ""
   constructor() {}
 
   ngOnInit() {
-    this.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.id}.png`
+    // this.types = this.type.split(",", 2)
+    // console.log('types', this.types)
   }
 }

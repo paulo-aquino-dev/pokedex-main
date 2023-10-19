@@ -1,15 +1,15 @@
-import { PokemonDTO } from './../DTOs/PokemonDTO';
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { PokemonDTO } from '../DTOs/PokemonDTO';
+import { Component, Input } from '@angular/core';
 import { PokeDataService } from 'src/app/services/poke-data.service';
 
 @Component({
-  selector: 'app-card-list',
-  templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.scss'],
+  selector: 'app-card-pokemon-list',
+  templateUrl: './card-pokemon-list.component.html',
+  styleUrls: ['./card-pokemon-list.component.scss'],
   providers: [PokeDataService],
 })
-export class CardListComponent {
-  @Input() filtro: any;
+export class CardPokemonListComponent {
+  @Input() filtro: any
   pokemons: PokemonDTO[] = []
   pokemonFiltrado: PokemonDTO[] = []
 
@@ -21,19 +21,19 @@ export class CardListComponent {
         const ids = Array.from({ length: totalPokemon }, (_, i) => i + 1);
         const retornoApi = await Promise.all(
           ids.map((id) => this.pokeDataService.getPokemonById(id))
-        );
+        )
         retornoApi.forEach((poke) => {
           const pokemonType: string = poke.types
             .map((poke: any) => poke.type.name)
-            .join(', ');
+            .join(', ')
           const pokemonDto = new PokemonDTO(
             poke.id,
             poke.name,
             poke.sprites.front_default,
             pokemonType
-          );
+          )
           this.pokemons.push(pokemonDto);
-        });
+        })
       } catch (error) {
         console.error('Erro ao chamar a API:', error);
       }
@@ -42,13 +42,11 @@ export class CardListComponent {
 
   async ngOnChanges(): Promise<void> {
     this.pokemonFiltrado = []
-    console.log('value changed', this.filtro);
-    console.log('pokemonFiltrado', this.pokemonFiltrado);
     if (this.filtro) {
       const retornoApi = await this.pokeDataService.getPokemonByName(
         this.filtro
       )
-      console.log('filtro', retornoApi);
+
       const pokemonType: string = retornoApi.types
         .map((poke: any) => poke.type.name)
         .join(', ');

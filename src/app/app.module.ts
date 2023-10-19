@@ -17,7 +17,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardPokemonComponent } from './shared/card-pokemon/card-pokemon.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
-import { CardListComponent } from './shared/card-list/card-list.component';
+import { CardPokemonListComponent } from './shared/card-pokemon-list/card-pokemon-list.component';
 import { PokeDataService } from './services/poke-data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, AsyncPipe } from '@angular/common';
@@ -33,7 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
     ContainerComponent,
     HomeComponent,
     CardPokemonComponent,
-    CardListComponent,
+    CardPokemonListComponent,
     FormBuscaComponent
   ],
   imports: [
