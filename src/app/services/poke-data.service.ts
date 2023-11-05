@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environments';
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+
+import { environment } from '../environments/environments'
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class PokeDataService {
-  pokemons: any[] = [];
+  pokemons: any[] = []
   baseUrl = environment.baseUrl
 
   constructor(private http: HttpClient) {}
@@ -20,7 +21,6 @@ export class PokeDataService {
     return (await fetch(`${this.baseUrl}pokemon/${name}`)).json()
   }
 
-  getPokemons() {
-    return this.http.get(`${this.baseUrl}pokemon?limit=151`);
-  }
+  getPokemons = (): Observable<Object> =>
+    this.http.get(`${this.baseUrl}pokemon?limit=151`)
 }

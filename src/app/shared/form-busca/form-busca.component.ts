@@ -1,8 +1,9 @@
-import { PokemonDTO } from "../DTOs/PokemonDTO";
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable, map, startWith } from 'rxjs';
-import { PokeDataService } from 'src/app/services/poke-data.service';
+import { Component, EventEmitter, Output } from '@angular/core'
+import { FormControl } from '@angular/forms'
+import { Observable, map, startWith } from 'rxjs'
+
+import { PokemonDTO } from "../DTOs/PokemonDTO"
+import { PokeDataService } from 'src/app/services/poke-data.service'
 
 @Component({
   selector: 'app-form-busca',
