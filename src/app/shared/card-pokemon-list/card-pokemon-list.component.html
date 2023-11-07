@@ -2,8 +2,7 @@
   <app-card-pokemon
     *ngFor="let pokemon of pokemonFiltrado;"
     [id]="pokemon.id"
-    [name]="pokemon.name"
-  ></app-card-pokemon>
+    [name]="pokemon.name"></app-card-pokemon>
 </div>
 
 <div class="card-wrapper" *ngIf="!this.filtro">
@@ -11,6 +10,5 @@
     *ngFor="let pokemon of pokemons;"
     [id]="pokemon.id"
     [name]="pokemon.name"
-    [type]="pokemon.type"
-  ></app-card-pokemon>
+    [type]="pokemon.type"></app-card-pokemon>
 </div>

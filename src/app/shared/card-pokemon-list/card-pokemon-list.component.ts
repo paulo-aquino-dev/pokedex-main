@@ -1,6 +1,7 @@
-import { PokemonDTO } from '../DTOs/PokemonDTO';
-import { Component, Input } from '@angular/core';
-import { PokeDataService } from 'src/app/services/poke-data.service';
+import { Component, Input } from '@angular/core'
+
+import { PokemonDTO } from '../DTOs/PokemonDTO'
+import { PokeDataService } from 'src/app/services/poke-data.service'
 
 @Component({
   selector: 'app-card-pokemon-list',
@@ -60,7 +61,7 @@ export class CardPokemonListComponent {
     }
   }
 
-  ngOnInit() {
-    this.getPokemons();
+  ngOnInit():void {
+    this.getPokemons()
   }
 }
